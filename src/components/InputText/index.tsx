@@ -1,18 +1,39 @@
-import { Container, Label, Input } from './styles'
+import { ChangeEvent } from 'react'
+
+import { Container, Label, Input, InputContainer, ImgContainer } from './styles'
+
+import CheckIcon from '../../assets/check.svg'
+import ErrorIcon from '../../assets/error.svg'
+
 type InputProps = {
   label: string,
   place: string,
   type?: string,
-  riquered?: boolean
+  autoComplete?: string,
+  verified?: boolean,
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: () => void
 }
 
-export const InputText = ({ label, place, ...rest }: InputProps) => {
+export const InputText: React.FC<InputProps> = ({ label, place, verified, ...rest }) => {
   return (
-    <Container {...rest} >
+    <Container >
       <Label>
         {label}
       </Label>
-      <Input placeholder={place} {...rest} />
+      <InputContainer verified={verified} {...rest}>
+        <Input placeholder={place} {...rest} />
+        <ImgContainer verified={verified}>
+          {
+            verified
+              ? <img src={CheckIcon} alt="check" />
+              : verified === false
+                ? <img src={ErrorIcon} alt="error" />
+                : ''
+          }
+
+        </ImgContainer>
+      </InputContainer>
 
     </Container>
   )

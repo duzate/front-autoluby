@@ -21,7 +21,7 @@ export const ContainerLeft = styled.div`
 
 export const Main = styled.div`
   display: flex;
-  margin-top: 30%;
+  margin-top: 20%;
   justify-content: center;
 `;
 
