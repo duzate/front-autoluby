@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   
   span {
-    font-size: 57px;
+    font-size: 38px;
     margin-left: 24px;
     color: ${themes.colors.primary_red};
     font-weight: 600;

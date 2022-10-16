@@ -4,7 +4,7 @@ import { themes } from '../../Global/styles/themes';
 export const Container = styled.button`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
   height: 38px;
   border: none;
@@ -23,5 +23,9 @@ export const Container = styled.button`
   :active {
     background-color: ${themes.colors.primary_hover};
     border: 1.5px solid ${themes.colors.primary_pressed}
+  }
+  
+  svg {
+    font-size: 18px;
   }
 `;

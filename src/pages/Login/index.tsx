@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import * as yup from 'yup';
 
 import { Logo } from '../../components/Logo';
@@ -31,6 +31,7 @@ const Login = () => {
       .required()
   })
 
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <Container>
@@ -79,7 +80,7 @@ const Login = () => {
                   <span>Esqueceu a senha?</span>
                 </Link>
               </ContainerPass>
-              <Button title='Entrar' />
+              <Button title='Entrar' onClick={() => navigate('/')} />
               <Register>
                 <span>
                   Ainda não tem uma conta?
