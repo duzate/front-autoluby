@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { themes } from '../../Global/styles/themes';
 
-export const Container = styled.div`
+export const Container = styled.button`
   display: flex;
   justify-content: space-between;
   border: 1px ${themes.colors.stroke};
@@ -12,6 +12,7 @@ export const Container = styled.div`
   cursor: pointer;
   transform: scale(1);
   transition: ease .1s;
+  background: none;
   
   :hover{ 
     transition: ease .3s;

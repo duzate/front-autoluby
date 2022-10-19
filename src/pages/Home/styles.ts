@@ -11,25 +11,6 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Header = styled.div`
-  display: flex;
-  padding: 31px 150px;
-  box-shadow: 0px 2px 25px ${themes.colors.stroke};
-  justify-content: space-around;
-  align-items: center;
-  height: 120px;
-`;
-
-export const Logout = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 38px;
-  width: 75px;
-  border-radius: 3px;
- 
-`;
-
 export const Main = styled.div`
   display: flex;
   justify-content: center;

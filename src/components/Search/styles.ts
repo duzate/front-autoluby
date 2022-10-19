@@ -4,8 +4,8 @@ import { themes } from '../../Global/styles/themes';
 export const Container = styled.div`
   display: flex;  
   align-items: center;
-  height: 44px;
-  width: 430px;
+  height: 100%;
+  width: 100%;
   border: 1px solid ${themes.colors.stroke};
   padding: 12px;
   border-radius: 3px;
@@ -21,7 +21,7 @@ export const Container = styled.div`
 `;
 
 export const Input = styled.input`
-  flex: 1;
+  width: 100%;
   border: none;
   background-color: ${themes.colors.input};
   color: ${themes.colors.dack_gray};
