@@ -1,9 +1,8 @@
 export const themes = {
   colors: {
-    gray: '#7C7C7C',
+    gray: 'rgba(124, 124, 124, 1)',
     dack_gray: '#3C3C3C',
     light_gray: '#A2A2A2',
-
     input: '#F9F9F9',
     stroke: '#E6E6E6',
 
