@@ -43,6 +43,18 @@ export const ContentLeft = styled.div`
   }
 `;
 
+export const Message = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  p {
+    color: ${themes.colors.primary_red};
+    margin: 0;
+  }
+  
+  margin-bottom: 2rem;
+`
+
 
 export const ContainerPass = styled.div`
   display: flex;

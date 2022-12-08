@@ -4,12 +4,11 @@ import { Search } from "../Search"
 
 import { FiLogOut } from 'react-icons/fi'
 import { Container, Logout, SearchContainer } from "./styles"
-import { useNavigate } from "react-router-dom"
+import { useAuth } from "../../hooks/useAuth"
 
 export const Header = () => {
-  const navigate = useNavigate();
   const page = window.location.pathname
-
+  const { handleLogout } = useAuth()
   return (
     <Container>
       <Logo />
@@ -20,7 +19,7 @@ export const Header = () => {
         }
       </SearchContainer>
       <Logout>
-        <Button title="Sair" icon={FiLogOut} onClick={() => navigate('/login')} />
+        <Button title="Sair" icon={FiLogOut} onClick={handleLogout} />
       </Logout>
     </Container>
   )

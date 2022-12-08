@@ -3,12 +3,12 @@ import { Table } from "../../components/Table"
 import { categories } from "../../util/categories"
 import { tables } from "../../util/tables"
 
-const Employees = () => {
+const YoursVehicles = () => {
   return (
-    <Default title='Funcionários' >
-      <Table title={categories[2].subtitle} header={tables[1].header} />
+    <Default title='Seus Veículos' >
+      <Table title={categories[0].subtitle} header={tables[0].header} />
     </Default>
   )
 }
 
-export default Employees
+export default YoursVehicles

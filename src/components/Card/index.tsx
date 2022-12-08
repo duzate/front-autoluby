@@ -12,7 +12,6 @@ type CardProps = {
 
 export const Card = ({ title, subtitle, count, img, link }: CardProps) => {
   const navigate = useNavigate()
-  console.log(link);
 
   return (
     <Container onClick={() => navigate(`${link}`)}>

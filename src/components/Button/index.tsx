@@ -1,10 +1,9 @@
-import { ComponentType } from "react";
+import { ButtonHTMLAttributes, ComponentType } from "react";
 import { Container } from "./styles"
 
-type ButtonProps = {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   title: string;
   icon?: ComponentType;
-  onClick?: () => void;
 }
 
 export const Button = ({ title, icon: Icon, ...rest }: ButtonProps) => {

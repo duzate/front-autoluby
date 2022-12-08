@@ -1,37 +1,49 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect } from 'react';
 
-import { Link, Navigate, useNavigate } from 'react-router-dom'
-import * as yup from 'yup';
+import { Link, redirect, useNavigate, } from 'react-router-dom'
 
+import Auto from '../../assets/auto.png'
 import { Logo } from '../../components/Logo';
 import { Button } from '../../components/Button';
 import { InputText } from '../../components/InputText';
 import { Checkbox } from '../../components/InputCheckbox';
 
-import Auto from '../../assets/auto.png'
-import { Wrapper, Container, ContainerLeft, Main, ContainerRight, ContainerPass, ContentLeft, Register } from './styles'
+import { useAuth } from '../../hooks/useAuth';
+import { emailSchema, passSchema } from '../../validation';
+import {
+  Wrapper,
+  Container,
+  ContainerLeft,
+  Main,
+  ContainerRight,
+  ContainerPass,
+  ContentLeft,
+  Register,
+  Message
+} from './styles'
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [emailVerified, setEmailVerified] = useState<boolean>()
-  const [passVerified, setPassVerified] = useState<boolean>()
+  const {
+    handleLogin,
+    user,
+    setEmail,
+    setPassword,
+    email, password,
+    message,
+    emailVerified,
+    passVerified,
+    setEmailVerified,
+    setPassVerified
+  } = useAuth()
 
-  const emailSchema = yup.object().shape({
-    email: yup
-      .string()
-      .email()
-      .required()
-  })
+  const navigate = useNavigate()
 
-  const passSchema = yup.object().shape({
-    password: yup
-      .string()
-      .min(8)
-      .required()
-  })
+  useEffect(() => {
+    if (user) {
+      return navigate("/");
+    }
+  }, [user]);
 
-  const navigate = useNavigate();
   return (
     <Wrapper>
       <Container>
@@ -45,7 +57,7 @@ const Login = () => {
 
                 <InputText
                   label={'Endereço de email'}
-                  place={'@mail.com'}
+                  placeholder={'@mail.com'}
                   type='email'
                   autoComplete='email'
                   onChange={(event: ChangeEvent<HTMLInputElement>) => {
@@ -60,7 +72,7 @@ const Login = () => {
                 />
                 <InputText
                   label={'Senha'}
-                  place={'senha'}
+                  placeholder={'senha'}
                   type='password'
                   autoComplete='current-password'
                   onChange={(event: ChangeEvent<HTMLInputElement>) => {
@@ -73,14 +85,21 @@ const Login = () => {
                     })}
                   verified={passVerified}
                 />
+                <Message>
+                  {
+                    message.map(erro => (
+                      <p key={erro}>{erro}</p>
+                    ))
+                  }
+                </Message>
+                <ContainerPass>
+                  <Checkbox text='Lembre minha senha' />
+                  <Link to={''}>
+                    <span>Esqueceu a senha?</span>
+                  </Link>
+                </ContainerPass>
+                <Button title='Entrar' onClick={handleLogin} />
               </form>
-              <ContainerPass>
-                <Checkbox text='Lembre minha senha' />
-                <Link to={''}>
-                  <span>Esqueceu a senha?</span>
-                </Link>
-              </ContainerPass>
-              <Button title='Entrar' onClick={() => navigate('/')} />
               <Register>
                 <span>
                   Ainda não tem uma conta?

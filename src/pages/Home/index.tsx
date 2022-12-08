@@ -9,7 +9,6 @@ const Home = () => {
     <Default title={`Bem-vindo, ${user.name}`} subtitle={'Menu'}>
       {
         categories.map(category => (
-          console.log(category.link),
 
           <Card
             key={category.id}
